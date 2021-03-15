@@ -1,0 +1,63 @@
+<!--AULA DESCODIFICADAS INTERVALO 2 - Desafio:"Ao rodar o programa, deve constar na tela um formulário que converterá graus" --> 
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantos graus está no Brasil?</title>
+    
+</head>
+<body>
+    <style>
+        body {
+          background: rgb(6, 54, 22);
+          }
+        h1, h2, h3, form {
+          color: white; font: size 20px; text-align: center;
+          }
+        fieldset{
+          width: 10%; margin: 0px auto;
+        }
+        legend{
+          color: white; font: size 16px;
+        }
+        label{
+          color: white; font: size 20px
+        }
+    </style>
+    <h1> Quantos graus está no Brasil?</h1>
+    <h2>Curso Descodificadas - Intervalo 2</h2>
+    <h3>Desafio:<i>"Ao rodar o programa, deve constar na tela um formulário que converterá graus"</i></h3>
+    
+    <form>
+        
+        <fieldset>
+        <legend>Quantos graus está no Brasil (em celsius)?</legend>
+        <label for="num">Graus em Fahrenheit </label>
+        <br>
+        Fahrenheit: <input id="f" onkeyup="convert('F')" placeholder="Digite em Fahrenheit"> 
+        <br>
+        <br>
+        Celsius: <input id="c" onkeyup="convert('C')" placeholder="Veja em Celsius">  
+        <br>
+        <br>     
+        </fieldset>
+    </form>
+    
+    <script>    
+      function convert(degree) {
+        var temperature;
+        if (degree == "F") {
+          temperature = (document.getElementById("f").value -32) * 5 / 9;
+          document.getElementById("c").value = Math.round(temperature);
+        } else {
+          temperature = document.getElementById("c").value * 9 / 5 + 32;
+          document.getElementById("f").value = Math.round(temperature);
+        }
+      }
+    </script>
+</body>
+</html>
+        
+    
+
+

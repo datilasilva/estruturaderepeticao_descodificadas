@@ -1,0 +1,102 @@
+<!--AULA DESCODIFICADAS INTERVALO 2 - OPERADORES   --> 
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual é minha idade?</title>
+    
+</head>
+<body>
+    <style>
+        body {
+          background: rgb(19, 2, 41);
+          }
+        h1, h2, h3 {
+          color: white; font: size 20px; text-align: center;
+          }
+        fieldset{
+          width: 10%; margin: 0px auto;
+        }
+        legend{
+          color: white; font: size 16px;
+        }
+        label{
+          color: white; font: size 20px
+        }
+    </style>
+    <h1> Qual é minha idade</h1>
+    <h2>Curso Descodificadas - Intervalo 2</h2>
+    <h3>Desafio:<i>"Ao rodar o programa, deve constar na tela um formulário com nome e data de nascimento para preenchimento e descoberta da idade"</i></h3>
+    
+    <form>
+        
+        <fieldset>
+
+        <legend>Qual é minha?</legend>
+
+        <label for="name">Nome:</label>
+        <br>
+        <input id="nome" type="text" name="nome" placeholder="Digite aqui seu nome"/> 
+        <br>
+        <br>
+        <label for="data">Data de nascimento:</label>
+        <br>
+        <input id= "data" type="date" name="data" placeholder="01/01/2020">
+        <br>
+        <br>
+        <label for="idade">Sua idade é:</label>
+        <br>
+        <input id= "idade" type="num" name="idade">
+        <br>
+        <br>
+        </fieldset>
+    </form>
+    <script>
+        document.getElementById("data").addEventListener('change', function() 
+            { var data = new Date(this.value);
+            if(isDate_(this.value) && data.getFullYear() > 1900)
+            document.getElementById("idade").value = calculateAge(this.value);
+            });
+
+        function calculateAge(dobString) {
+            var dob = new Date(dobString);
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            var birthdayThisYear = new Date(currentYear, dob.getMonth(), dob.getDate());
+            var age = currentYear - dob.getFullYear();
+            if(birthdayThisYear > currentDate) {
+            age--;
+        }
+        return age;
+        }
+
+        function calcular(data) {
+           var data = document.form.nascimento.value;
+            alert(data);
+            var partes = data.split("/");
+            var junta = partes[2]+"-"+partes[1]+"-"+partes[0];
+            document.form.idade.value = (calculateAge(junta));
+        }
+
+        var isDate_ = function(input) {
+            var status = false;
+            if (!input || input.length <= 0) {
+            status = false;
+            } else {
+            var result = new Date(input);
+            if (result == 'Invalid Date') {
+            status = false;
+            } else {
+            status = true;
+            }
+            }
+            return status;
+        }  
+    </script>
+</body>
+</html>
+        
+    
+
+
